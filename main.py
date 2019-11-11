@@ -22,9 +22,9 @@ def evaluate_policy(policy, eval_episodes=10):
 
 	avg_reward /= eval_episodes
 
-	print "---------------------------------------"
-	print "Evaluation over %d episodes: %f" % (eval_episodes, avg_reward)
-	print "---------------------------------------"
+	print("---------------------------------------")
+	print("Evaluation over %d episodes: %f" % (eval_episodes, avg_reward))
+	print("---------------------------------------")
 	return avg_reward
 
 
@@ -40,9 +40,9 @@ if __name__ == "__main__":
 
 	file_name = "BCQ_%s_%s" % (args.env_name, str(args.seed))
 	buffer_name = "%s_%s_%s" % (args.buffer_type, args.env_name, str(args.seed))
-	print "---------------------------------------"
-	print "Settings: " + file_name
-	print "---------------------------------------"
+	print("---------------------------------------")
+	print("Settings: " + file_name)
+	print("---------------------------------------")
 
 	if not os.path.exists("./results"):
 		os.makedirs("./results")
@@ -77,4 +77,4 @@ if __name__ == "__main__":
 		np.save("./results/" + file_name, evaluations)
 
 		training_iters += args.eval_freq
-		print "Training iterations: " + str(training_iters)
+		print("Training iterations: " + str(training_iters))

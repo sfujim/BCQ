@@ -20,9 +20,9 @@ if __name__ == "__main__":
 	args = parser.parse_args()
 
 	file_name = "DDPG_%s_%s" % (args.env_name, str(args.seed))
-	print "---------------------------------------"
-	print "Settings: " + file_name
-	print "---------------------------------------"
+	print("---------------------------------------")
+	print("Settings: " + file_name)
+	print("---------------------------------------")
 
 	if not os.path.exists("./pytorch_models"):
 		os.makedirs("./pytorch_models")
@@ -50,8 +50,8 @@ if __name__ == "__main__":
 		
 		if done: 
 
-			if total_timesteps != 0: 
-				print("Total T: %d Episode Num: %d Episode T: %d Reward: %f") % (total_timesteps, episode_num, episode_timesteps, episode_reward)
+			if total_timesteps != 0:
+				print("Total T: %d Episode Num: %d Episode T: %d Reward: %f" % (total_timesteps, episode_num, episode_timesteps, episode_reward))
 				policy.train(replay_buffer, episode_timesteps)
 			
 			# Save policy
