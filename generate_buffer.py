@@ -20,9 +20,9 @@ if __name__ == "__main__":
 
 	file_name = "DDPG_%s_%s" % (args.env_name, str(args.seed))
 	buffer_name = "Robust_%s_%s" % (args.env_name, str(args.seed))
-	print "---------------------------------------"
-	print "Settings: " + file_name
-	print "---------------------------------------"
+	print("---------------------------------------")
+	print("Settings: " + file_name)
+	print("---------------------------------------")
 
 	if not os.path.exists("./buffers"):
 		os.makedirs("./buffers")
@@ -53,7 +53,7 @@ if __name__ == "__main__":
 		if done: 
 
 			if total_timesteps != 0: 
-				print("Total T: %d Episode Num: %d Episode T: %d Reward: %f") % (total_timesteps, episode_num, episode_timesteps, episode_reward)
+				print("Total T: %d Episode Num: %d Episode T: %d Reward: %f" % (total_timesteps, episode_num, episode_timesteps, episode_reward))
 			
 			# Reset environment
 			obs = env.reset()
