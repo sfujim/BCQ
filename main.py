@@ -146,7 +146,7 @@ if __name__ == "__main__":
 	parser.add_argument("--max_timesteps", default=1e6, type=int)   # Max time steps to run environment or train for (this defines buffer size)
 	parser.add_argument("--start_timesteps", default=25e3, type=int)# Time steps initial random policy is used before training behavioral
 	parser.add_argument("--rand_action_p", default=0.3, type=float) # Probability of selecting random action during batch generation
-	parser.add_argument("--gaussian_std", default=0.1, type=float)  # Std of Gaussian exploration noise (Set to 0.3 for "robust" experiment)
+	parser.add_argument("--gaussian_std", default=0.3, type=float)  # Std of Gaussian exploration noise (Set to 0.1 if DDPG trains poorly)
 	parser.add_argument("--batch_size", default=100, type=int)      # Mini batch size for networks
 	parser.add_argument("--discount", default=0.99)                 # Discount factor
 	parser.add_argument("--tau", default=0.005)                     # Target network update rate
