@@ -1,30 +1,8 @@
-# Off-Policy Deep Reinforcement Learning without Exploration
+# Batch-Contrained Deep Q-Learning (BCQ)
 
-Code for Batch-Constrained deep Q-Learning (BCQ). If you use our code please cite the [paper](https://arxiv.org/abs/1812.02900).
+Batch-Constrained deep Q-learning (BCQ) is the first batch deep reinforcement learning, an algorithm which aims to learn offline without interactions with the environment.
 
-Method is tested on [MuJoCo](http://www.mujoco.org/) continuous control tasks in [OpenAI gym](https://github.com/openai/gym). 
-Networks are trained using [PyTorch 1.4](https://github.com/pytorch/pytorch) and Python 3.6. 
-
-### Overview
-
-Batch-Constrained deep Q-learning (BCQ) is the first batch deep reinforcement learning, an algorithm which aims to learn offline, without interactions with the environment.
-
-If you are interested in reproducing some of the results from the paper, a behavioral policy (DDPG) needs to be trained by running 
-```
-main.py --train_behavioral
-```
-This will save the PyTorch model. A new buffer can then be collected by running
-```
-main.py --generate_buffer
-```
-Finally train BCQ by running
-```
-main.py
-```
-
-Settings can be adjusted with different arguments to main.py. 
-
-DDPG was updated to learn more consistently. Additionally, with version updates to Python, PyTorch and environments, results may not correspond exactly to the paper. 
+BCQ was first introduced in our [ICML 2019 paper](https://arxiv.org/abs/1812.02900) which focused on continuous action domains. A discrete-action version of BCQ was introduced in a followup [Deep RL workshop NeurIPS 2019 paper](https://arxiv.org/abs/1910.01708). Code for each of these algorithms can be found under their corresponding folder. 
 
 ### Bibtex
 
@@ -34,6 +12,15 @@ DDPG was updated to learn more consistently. Additionally, with version updates 
   author={Fujimoto, Scott and Meger, David and Precup, Doina},
   booktitle={International Conference on Machine Learning},
   pages={2052--2062},
+  year={2019}
+}
+```
+
+```
+@article{fujimoto2019benchmarking,
+  title={Benchmarking Batch Deep Reinforcement Learning Algorithms},
+  author={Fujimoto, Scott and Conti, Edoardo and Ghavamzadeh, Mohammad and Pineau, Joelle},
+  journal={arXiv preprint arXiv:1910.01708},
   year={2019}
 }
 ```
