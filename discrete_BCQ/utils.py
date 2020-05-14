@@ -10,10 +10,6 @@ def ReplayBuffer(state_dim, is_atari, atari_preprocessing, batch_size, buffer_si
 		return StandardBuffer(state_dim, batch_size, buffer_size, device)
 
 
-### Actually overflow buffer should contain ALL terminal next states.
-### Otherwise we may sample a terminal next state.
-### Actually due to state history, we would only get [ns, 0, 0, 0] as the next state.
-### So its better to just not add transitions which terminate due to time limit
 class AtariBuffer(object):
 	def __init__(self, state_dim, atari_preprocessing, batch_size, buffer_size, device):
 		self.batch_size = batch_size
@@ -95,7 +91,6 @@ class AtariBuffer(object):
 		)
 
 
-	# Need to re-write this
 	def save(self, save_folder, chunk=int(1e5)):
 		np.save(f"{save_folder}_action.npy", self.action[:self.crt_size])
 		np.save(f"{save_folder}_reward.npy", self.reward[:self.crt_size])
@@ -120,7 +115,6 @@ class AtariBuffer(object):
 		size = min(int(size), self.max_size) if size > 0 else self.max_size
 		self.crt_size = min(reward_buffer.shape[0], size)
 
-		#self.state[:self.crt_size] = np.load(f"{save_folder}_state.npy")[:self.crt_size]
 		self.action[:self.crt_size] = np.load(f"{save_folder}_action.npy")[:self.crt_size]
 		self.reward[:self.crt_size] = reward_buffer[:self.crt_size]
 		self.not_done[:self.crt_size] = np.load(f"{save_folder}_not_done.npy")[:self.crt_size]

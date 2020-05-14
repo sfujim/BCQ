@@ -12,7 +12,6 @@ import DQN
 import utils
 
 
-#def main(env, parameters, is_atari, policy, replay_buffer):#, logger):
 def interact_with_environment(env, replay_buffer, is_atari, state_dim, num_actions, args, parameters, device):
 	# For saving files
 	setting = f"{args.env}_{args.seed}"
