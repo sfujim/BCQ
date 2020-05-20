@@ -55,7 +55,7 @@ def interact_with_environment(env, replay_buffer, is_atari, state_dim, num_actio
 		# If policy is low noise, we take random actions with p=eval_eps.
 		# If the policy is high noise, we take random actions with p=rand_action_p.
 		if args.generate_buffer:
-			if not low_noise_ep or np.random.uniform(0,1) < max(args.rand_action_p - parameters["eval_eps"], 0):
+			if not low_noise_ep and np.random.uniform(0,1) < args.rand_action_p - parameters["eval_eps"]:
 				action = env.action_space.sample()
 			else:
 				action = policy.select_action(np.array(state), eval=True)

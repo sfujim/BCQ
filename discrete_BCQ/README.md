@@ -1,4 +1,4 @@
-# Discrete BCQ
+# Discrete Batch-Constrained deep Q-Learning (BCQ)
 
 Code for Batch-Constrained deep Q-Learning (BCQ) for discrete actions. Additionally, we include a full pipeline for training DQN in Atari. If you use our code please cite our [Deep RL workshop NeurIPS 2019 paper](https://arxiv.org/abs/1910.01708).
 
