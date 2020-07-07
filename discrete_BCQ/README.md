@@ -7,17 +7,17 @@ Networks are trained using [PyTorch 1.4](https://github.com/pytorch/pytorch) and
 
 ### Overview
 
-To begin a behavioral policy (DQN) needs to be trained by running 
+To begin a behavioral policy (DQN) needs to be trained by running:
 ```
-main.py --train_behavioral
+python main.py --train_behavioral
 ```
-This will save the PyTorch model. A new buffer can then be collected by running
+This will save the PyTorch model. A new buffer can then be collected by running:
 ```
-main.py --generate_buffer
+python main.py --generate_buffer
 ```
-Finally train BCQ by running
+Finally train BCQ by running:
 ```
-main.py
+python main.py
 ```
 
 Settings can be adjusted by changing the dicts in main.py. This is a reproduction of the code in the original paper, and results will not correspond exactly.

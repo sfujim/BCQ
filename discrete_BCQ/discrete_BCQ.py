@@ -77,7 +77,7 @@ class discrete_BCQ(object):
 		self.device = device
 
 		# Determine network type
-		self.Q = Conv_Q(4, num_actions).to(self.device) if is_atari else FC_Q(state_dim, num_actions).to(self.device)
+		self.Q = Conv_Q(state_dim[0], num_actions).to(self.device) if is_atari else FC_Q(state_dim, num_actions).to(self.device)
 		self.Q_target = copy.deepcopy(self.Q)
 		self.Q_optimizer = getattr(torch.optim, optimizer)(self.Q.parameters(), **optimizer_parameters)
 
@@ -94,7 +94,7 @@ class discrete_BCQ(object):
 		self.slope = (self.end_eps - self.initial_eps) / eps_decay_period
 
 		# Evaluation hyper-parameters
-		self.state_shape = (-1, 4, 84, 84) if is_atari else (-1, state_dim) ### need to pass framesize
+		self.state_shape = (-1,) + state_dim if is_atari else (-1, state_dim)
 		self.eval_eps = eval_eps
 		self.num_actions = num_actions
 

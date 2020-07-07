@@ -303,9 +303,15 @@ def make_env(env_name, atari_preprocessing):
 	is_atari = gym.envs.registry.spec(env_name).entry_point == 'gym.envs.atari:AtariEnv'
 	env = AtariPreprocessing(env, **atari_preprocessing) if is_atari else env
 
+	state_dim = (
+		atari_preprocessing["state_history"], 
+		atari_preprocessing["frame_size"], 
+		atari_preprocessing["frame_size"]
+	) if is_atari else env.observation_space.shape[0]
+
 	return (
-		env, 
-		is_atari, 
-		env.observation_space.shape[0], 
+		env,
+		is_atari,
+		state_dim,
 		env.action_space.n
 	)

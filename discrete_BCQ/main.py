@@ -12,7 +12,7 @@ import DQN
 import utils
 
 
-def interact_with_environment(env, replay_buffer, is_atari, state_dim, num_actions, args, parameters, device):
+def interact_with_environment(env, replay_buffer, is_atari, num_actions, state_dim, device, args, parameters):
 	# For saving files
 	setting = f"{args.env}_{args.seed}"
 	buffer_name = f"{args.buffer_name}_{setting}"
@@ -116,7 +116,7 @@ def interact_with_environment(env, replay_buffer, is_atari, state_dim, num_actio
 
 
 # Trains BCQ offline
-def train_BCQ(env, replay_buffer, is_atari, state_dim, num_actions, args, parameters, device):
+def train_BCQ(env, replay_buffer, is_atari, num_actions, state_dim, device, args, parameters):
 	# For saving files
 	setting = f"{args.env}_{args.seed}"
 	buffer_name = f"{args.buffer_name}_{setting}"
@@ -290,6 +290,6 @@ if __name__ == "__main__":
 	replay_buffer = utils.ReplayBuffer(state_dim, is_atari, atari_preprocessing, parameters["batch_size"], parameters["buffer_size"], device)
 
 	if args.train_behavioral or args.generate_buffer:
-		interact_with_environment(env, replay_buffer, is_atari, state_dim, num_actions, args, parameters, device)
+		interact_with_environment(env, replay_buffer, is_atari, num_actions, state_dim, device, args, parameters)
 	else:
-		train_BCQ(env, replay_buffer, is_atari, state_dim, num_actions, args, parameters, device)
+		train_BCQ(env, replay_buffer, is_atari, num_actions, state_dim, device, args, parameters)
