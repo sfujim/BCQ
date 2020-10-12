@@ -1,4 +1,4 @@
-# Batch-Contrained Deep Q-Learning (BCQ)
+# Batch-Constrained Deep Q-Learning (BCQ)
 
 Batch-Constrained deep Q-learning (BCQ) is the first batch deep reinforcement learning, an algorithm which aims to learn offline without interactions with the environment.
 
