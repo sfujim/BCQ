@@ -50,7 +50,7 @@ class FC_Q(nn.Module):
 
 		i = F.relu(self.i1(state))
 		i = F.relu(self.i2(i))
-		i = F.relu(self.i3(i))
+		i = self.i3(i)
 		return self.q3(q), F.log_softmax(i, dim=1), i
 
 

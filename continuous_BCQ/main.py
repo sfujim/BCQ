@@ -181,6 +181,7 @@ if __name__ == "__main__":
 	env = gym.make(args.env)
 
 	env.seed(args.seed)
+	env.action_space.seed(args.seed)
 	torch.manual_seed(args.seed)
 	np.random.seed(args.seed)
 	
